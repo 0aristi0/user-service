@@ -1,0 +1,39 @@
+[versions]
+spring = "3.3.0"
+mapstruct = "1.5.5.Final"
+lombokMapstructBinding = "0.2.0"
+openApi = "2.4.0"
+instanceio = "4.8.0"
+
+[libraries]
+# depdendcies
+spring-boot-dependencies = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring" }
+
+# starters
+spring-boot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web" }
+spring-boot-starter-data-jpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa" }
+spring-boot-validation = {module = "org.springframework.boot:spring-boot-starter-validation"}
+openapi-starter = { module = "org.springdoc:springdoc-openapi-starter-webmvc-ui", version.ref = "openApi" }
+
+
+# database
+postgres-driver = { module = "org.postgresql:postgresql" }
+flyway = { module = "org.flywaydb:flyway-core" }
+flyway-postgres = { module = "org.flywaydb:flyway-database-postgresql" }
+
+# util
+lombok = { module = "org.projectlombok:lombok" }
+mapstruct = { module = "org.mapstruct:mapstruct", version.ref = "mapstruct" }
+mapstruct-processor = { module = "org.mapstruct:mapstruct-processor", version.ref = "mapstruct" }
+lombok-mapstruct-binding = { module = "org.projectlombok:lombok-mapstruct-binding", version.ref = "lombokMapstructBinding" }
+
+
+
+# test
+spring-boot-start-test = { module = "org.springframework.boot:spring-boot-starter-test"}
+testcontainers = {module = "org.testcontainers:testcontainers"}
+testcontainers-postgresql = {module = "org.testcontainers:postgresql"}
+instanceio-junit = {module = "org.instancio:instancio-junit", version.ref = "instanceio"}
+
+
+[plugins]

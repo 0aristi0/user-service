@@ -1,0 +1,38 @@
+subprojects {
+    apply plugin: 'java'
+
+    group = 'ru.aristi.task'
+    version = '0.0.1-SNAPSHOT'
+
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(21)
+        }
+    }
+
+    compileJava {
+        options.compilerArgs << "-Werror"
+        options.compilerArgs << "-Xlint:all,-serial"
+        options.compilerArgs << "-Xlint:-processing"
+    }
+
+    compileTestJava {
+        options.compilerArgs << "-Werror"
+        options.compilerArgs << "-Xlint:all,-serial"
+        options.compilerArgs << "-Xlint:-processing"
+    }
+
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        implementation platform(libs.spring.boot.dependencies)
+        annotationProcessor platform(libs.spring.boot.dependencies)
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+}

@@ -1,0 +1,33 @@
+compileJava {
+    options.compilerArgs << "-parameters"
+    options.compilerArgs << "-Amapstruct.unmappedTargetPolicy=IGNORE"
+    options.compilerArgs << "-Amapstruct.defaultComponentModel=spring"
+}
+
+dependencies {
+    implementation libs.spring.boot.starter.web
+    implementation libs.spring.boot.starter.data.jpa
+
+    implementation libs.openapi.starter
+
+    runtimeOnly libs.postgres.driver
+    implementation libs.flyway
+    implementation libs.flyway.postgres
+    implementation libs.spring.boot.validation
+
+    implementation libs.mapstruct
+    compileOnly libs.lombok
+    annotationProcessor libs.lombok
+    annotationProcessor libs.mapstruct.processor
+    annotationProcessor libs.lombok.mapstruct.binding
+
+    testImplementation libs.spring.boot.start.test
+    testImplementation libs.testcontainers
+    testImplementation libs.testcontainers.postgresql
+    testImplementation libs.instanceio.junit
+
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
